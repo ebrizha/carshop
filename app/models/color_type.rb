@@ -1,0 +1,2 @@
+class ColorType < ApplicationRecord
+end

@@ -1,0 +1,11 @@
+.jumbotron.desc
+  .carousel.slide.slider-container.container-free#photos{'data-ride' => "carousel"}
+    %ol.carousel-indicators
+      - photos.each.with_index do |photo, key|
+        %li{:class => key == 0 && 'active', 'data-target' => "#photos", 'data-slide-to' => key}
+
+    .carousel-inner
+      - photos.each.with_index  do |photo, key|
+        .item{:class => key == 0 && 'active'}= image_tag photo.source(:medium)
+
+

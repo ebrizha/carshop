@@ -1,0 +1,18 @@
+.row
+  .col-xs-2
+    = image_tag product.photo.first.source(:thumb)
+  .col-xs-4
+    %h4.product-name
+      %strong= product.title
+    %h4
+      %small= product.description[0..80].gsub(/\s\w+\s*$/,'...')
+  .col-xs-6
+    .col-xs-6.text-right
+      %h6
+        %strong= product.price
+        %span.text-muted x
+    .col-xs-4
+      %input.form-control.input-sm{:type=>'text', :value => 1}
+    .col-xs-2
+      %button.btn.btn-link.btn-xs{:type=>'button'}
+        %span.glyphicon.glyphicon-trash

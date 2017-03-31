@@ -1,0 +1,15 @@
+.col-xs-12
+  .thumbnail
+    = image_tag product.photo.first.source
+    .caption
+      %h3
+        = product.title
+      %p
+        = product.description
+      .row
+        .col-xs-12.col-sm-6.col-md-10
+          = link_to 'View details »', product_path(product), class: 'btn btn-default', type: 'button'
+          = link_to 'Bay', add_basket_path(product), id: "bay-#{product.id}", class: 'btn btn-default',
+              remote: true, method: :post
+        .col-xs-6.col-md-2
+          = "$#{product.price} "

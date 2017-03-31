@@ -1,0 +1,32 @@
+.jumbotron.desc
+  .row
+    .col-xs-12.col-sm-6.col-md-7
+      %h1.featurette-heading= @product.title
+    .col-xs-6.col-md-5
+      %h1.featurette-heading= "$#{@product.price} "
+  %p.lead= @product.description
+  .text-center
+    = link_to add_basket_path(@product), id: "bay-#{product.id}", remote: true, method: :post do
+      %p.btn.btn-lg.btn-success{:role => "button"} Bay
+
+.jumbotron.desc.text-center
+  .row.marketing
+    .col-lg-6
+      %h3 Manufacturer
+      %p= @product.manufacturer.name
+
+      %h3 Motor type
+      %p= @product.motor_type.name
+
+      %h3 Drive type
+      %p= @product.drive_type.name
+
+    .col-lg-6
+      %h3 Body type
+      %p= @product.body_type.name
+
+      %h3 Color type
+      %p= @product.color_type.name
+
+      %h3 Transmission type
+      %p= @product.transmission_type.name

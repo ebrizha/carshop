@@ -1,0 +1,16 @@
+%p.container-free.text-center OR
+
+- if devise_mapping.omniauthable?
+  - resource_class.omniauth_providers.each do |provider|
+    %p.text-center
+      = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider),
+        class: 'btn btn-lg btn-default btn-block'
+
+- if controller_name != 'sessions'
+  %p.text-center
+    = link_to "Log in", new_session_path(resource_name)
+
+- if devise_mapping.registerable? && controller_name != 'registrations'
+  %p.text-center
+    = link_to "Sign up", new_registration_path(resource_name)
+

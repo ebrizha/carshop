@@ -1,0 +1,11 @@
+.row.row-offcanvas.row-offcanvas-right
+  = render partial: 'product/index/filter', locals: {filter_params: @filter_params}
+  .col-xs-12.col-sm-8
+    .row
+      - @products.each do |product|
+        = render partial: 'product/index/item', locals: {product: product}
+
+      - if @products.empty?
+        = render partial: 'product/index/item_not_found'
+
+      = will_paginate @products

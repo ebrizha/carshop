@@ -1,0 +1,26 @@
+.container{'ng-controller'=>"BasketController"}
+  .row
+    .center-block.basket-container
+      .panel.panel-info
+        .panel-heading
+          .panel-title
+            .row
+              .col-xs-6
+                %h5
+                  %span.glyphicon.glyphicon-shopping-cart
+                  Shopping Cart
+        .panel-body
+          - @products.each do |product|
+            = render partial: 'basket/show/item', locals: {product: product}
+            - if @products.last != product
+              %hr
+
+        .panel-footer
+          .row.text-center
+            .col-xs-9
+              %h4.text-right
+                Total
+                %strong
+                  = "$ #{@products.sum(&:price)}"
+            .col-xs-3
+              %button.btn.btn-success.btn-block{:type=>'button'} Checkout

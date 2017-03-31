@@ -1,0 +1,2 @@
+class MotorType < ApplicationRecord
+end

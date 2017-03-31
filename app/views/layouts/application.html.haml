@@ -1,0 +1,15 @@
+!!!
+%html{'ng-app' => 'carShop'}
+  %head
+    %title
+      Carshop
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', "data-turbolinks-track" => "reload"
+    = javascript_include_tag 'application', "data-turbolinks-track" => "reload"
+
+  %body
+    .container
+      = render partial: 'layouts/application/navbar'
+      = render partial: 'layouts/application/action_info'
+      = yield
+      = render partial: 'layouts/application/footer'

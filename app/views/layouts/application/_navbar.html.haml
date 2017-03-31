@@ -1,0 +1,19 @@
+.navbar.navbar-fixed-top.navbar-inverse
+  .container
+    = link_to 'Carshop', root_path, class: 'navbar-brand'
+    .nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        %span.navbar-text
+          = current_user.email
+        %li
+          = link_to basket_path(@basket) do
+            Basket
+            %span.badge 0
+        %li
+          = link_to 'Sing out', destroy_user_session_path, :method => :delete
+      - else
+        .nav.navbar-nav
+          %li
+            = link_to 'Sing in', new_user_session_path
+          %li
+            = link_to 'Sing up', new_user_registration_path
